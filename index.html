@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amir Ali ❤️ Fatemeh</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:tahoma;
+}
+
+body{
+
+background:linear-gradient(135deg,#ff8fd8,#c084fc,#ffffff);
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+color:white;
+
+text-align:center;
+
+}
+
+.container{
+
+padding:25px;
+
+}
+
+h1{
+
+font-size:40px;
+
+margin-top:20px;
+
+text-shadow:0 0 15px hotpink;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(15px);
+
+padding:20px;
+
+border-radius:20px;
+
+margin:20px auto;
+
+max-width:700px;
+
+box-shadow:0 0 25px rgba(255,255,255,.25);
+
+}
+
+.photos{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+}
+
+.photos img{
+
+width:230px;
+
+border-radius:20px;
+
+box-shadow:0 0 20px pink;
+
+transition:.4s;
+
+}
+
+.photos img:hover{
+
+transform:scale(1.05);
+
+}
+
+button{
+
+padding:15px 35px;
+
+font-size:20px;
+
+border:none;
+
+border-radius:40px;
+
+cursor:pointer;
+
+margin:10px;
+
+}
+
+.yes{
+
+background:#ff3f92;
+
+color:white;
+
+}
+
+.no{
+
+background:#666;
+
+color:white;
+
+position:relative;
+
+}
+
+#timer{
+
+font-size:28px;
+
+font-weight:bold;
+
+margin-top:20px;
+
+}
+
+.heart{
+
+position:fixed;
+
+top:-50px;
+
+animation:fall 6s linear forwards;
+
+pointer-events:none;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh);
+
+opacity:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+❤️ Amir Ali & Fatemeh ❤️
+
+</h1>
+
+<div class="card">
+
+<h2>
+
+برای خاص‌ترین دختر دنیا 🌸
+
+</h2>
+
+<br>
+
+<div class="photos">
+
+<img src="photo1.jpg">
+
+<img src="photo2.jpg">
+
+</div>
+
+</div>
+<div class="card">
+
+<h2>🎵 آهنگ ما</h2>
+
+<audio id="music" controls>
+<source src="yummy.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="card">
+
+<h2>⏳ از روزی که عاشقت شدم...</h2>
+
+<div id="timer"></div>
+
+</div>
+
+<div class="card">
+
+<h2>💌 نامه‌ای برای فاطمه</h2>
+
+<p style="line-height:2;font-size:20px;">
+
+فاطمه جان...
+
+<br><br>
+
+از روزی که وارد زندگیم شدی،
+همه چیز برام قشنگ‌تر شد...
+
+<br><br>
+
+تو دلیل لبخندامی...
+
+آرامش قلبمی...
+
+و بهترین اتفاق زندگیمی...
+
+<br><br>
+
+قول میدم هر روز بیشتر از دیروز دوستت داشته باشم.
+
+<br><br>
+
+دوستت دارم...
+
+تا آخرین نفس...
+
+❤️
+
+<br><br>
+
+امیرعلی
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+
+❤️ تا ابد کنارم میمونی؟ ❤️
+
+</h2>
+
+<button class="yes" onclick="yes()">
+
+آره ❤️
+
+</button>
+
+<button class="no" id="no">
+
+نه 😅
+
+</button>
+
+</div>
+</div>
+
+<script>
+
+const startDate = new Date("2026-06-28T00:00:00");
+
+function updateTimer(){
+
+const now = new Date();
+
+const diff = now - startDate;
+
+const d = Math.floor(diff / 86400000);
+
+const h = Math.floor((diff % 86400000) / 3600000);
+
+const m = Math.floor((diff % 3600000) / 60000);
+
+const s = Math.floor((diff % 60000) / 1000);
+
+document.getElementById("timer").innerHTML =
+d+" روز "+h+" ساعت "+m+" دقیقه "+s+" ثانیه";
+
+}
+
+setInterval(updateTimer,1000);
+
+updateTimer();
+
+function heart(){
+
+let h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(20+Math.random()*25)+"px";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),6000);
+
+}
+
+setInterval(heart,250);
+
+const no=document.getElementById("no");
+
+function move(){
+
+no.style.position="fixed";
+
+no.style.left=Math.random()*80+"vw";
+
+no.style.top=Math.random()*80+"vh";
+
+}
+
+no.addEventListener("mouseover",move);
+
+no.addEventListener("touchstart",move);
+
+function yes(){
+
+document.getElementById("music").play();
+
+for(let i=0;i<250;i++){
+
+setTimeout(heart,i*25);
+
+}
+
+setTimeout(()=>{
+
+document.body.innerHTML=`
+
+<div style="height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(135deg,#ff5ebc,#a855f7);
+color:white;
+text-align:center;
+padding:20px;">
+
+<h1 style="font-size:70px;">💍❤️</h1>
+
+<h1>ممنون که گفتی آره ❤️</h1>
+
+<h2>قول میدم همیشه عاشقت بمونم</h2>
+
+<h2>فاطمه جان، تو قشنگ‌ترین اتفاق زندگیمی.</h2>
+
+<h3>دوستت دارم تا آخرین نفس...</h3>
+
+<h2>❤️ امیرعلی ❤️</h2>
+
+<audio autoplay loop>
+<source src="yummy.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+`;
+
+},2000);
+
+}
+
+</script>
+
+</body>
+
+</html>
